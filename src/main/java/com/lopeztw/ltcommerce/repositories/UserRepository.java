@@ -1,6 +1,7 @@
 package com.lopeztw.ltcommerce.repositories;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -12,9 +13,6 @@ import com.lopeztw.ltcommerce.projections.UserDetailsProjection;
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
 	
-	User findByEmail(String email); // como ja temos um atributo email criado la tudo certin(email), esse nome de metado ja casa diretamente
-
-	
 	@Query(nativeQuery = true, value = """
 			SELECT tb_user.email AS username, tb_user.password, tb_role.id AS roleId, tb_role.authority
 			FROM tb_user
@@ -24,4 +22,6 @@ public interface UserRepository extends JpaRepository<User, Long> {
 		""")
 	List<UserDetailsProjection> searchUserAndRolesByEmail(String email);
 	
+	
+	Optional<User> findByEmail(String email);
 }

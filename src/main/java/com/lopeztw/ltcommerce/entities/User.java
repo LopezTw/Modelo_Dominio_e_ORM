@@ -125,11 +125,6 @@ public class User implements UserDetails {
 		return roles;
 	}
 
-	@Override
-	public int hashCode() {
-		return Objects.hash(id);
-	}
-
 	public List<Order> getOrders() {
 		return orders;
 	}
@@ -161,7 +156,11 @@ public class User implements UserDetails {
 		return Objects.equals(id, other.id);
 	}
 
-
+	@Override
+    public int hashCode() {
+        return id != null ? id.hashCode() : 0;
+    }
+	
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		return roles;
