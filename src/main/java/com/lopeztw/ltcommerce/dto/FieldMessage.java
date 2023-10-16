@@ -1,8 +1,8 @@
 package com.lopeztw.ltcommerce.dto;
 
 public class FieldMessage {
-	private String fieldName;
-	private String message;
+	private String fieldName; // Nome do campo ( {name} {price} .... 
+	private String message; // Mensagem do error
 	
 	public FieldMessage(String fieldName, String message) {
 		super();
