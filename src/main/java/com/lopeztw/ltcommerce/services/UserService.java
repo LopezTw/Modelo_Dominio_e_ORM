@@ -42,7 +42,7 @@ public class UserService implements UserDetailsService{
 		return user;
 	}
 
-	protected User authenticated() {
+	protected User authenticated() {  // Nao disponivel pra classes de outros pacotes
 		try {
 			
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
