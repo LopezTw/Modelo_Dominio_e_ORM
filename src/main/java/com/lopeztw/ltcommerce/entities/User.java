@@ -133,11 +133,11 @@ public class User implements UserDetails {
     	roles.add(role);
     }
     
-    //Esse método retornará verdadeiro ou falso se o usario possuir o role recebido no parametro.
+    //Esse método retornará verdadeiro ou falso se o usario possuir ou nao o role recebido no parametro.
     public boolean hasRole(String roleName) {
-    	// P/ cada Role role dentro da coleçao roles, eh feito o teste IF
+    	// P/ cada Role role dentro da coleçao roles (lista la em cima), eh feito o teste IF
     	for (Role role : roles) {
-    		if (role.getAuthority().equals(roleName)) {
+    		if (role.getAuthority().equals(roleName)) { // Se algum dos roles for igual ao do username, retorna true
     			return true;
     		}
     	}
