@@ -8,6 +8,8 @@ import com.lopeztw.ltcommerce.entities.Order;
 import com.lopeztw.ltcommerce.entities.OrderItem;
 import com.lopeztw.ltcommerce.entities.enums.OrderStatus;
 
+import jakarta.validation.constraints.NotEmpty;
+
 public class OrderDTO {
 	private Long id;
 	private Instant moment;
@@ -16,6 +18,7 @@ public class OrderDTO {
 	private UserMinDTO client;
 	private PaymentDTO payment;
 	
+	@NotEmpty(message = "O pedido deve ter pelo menos um item")
 	private List<OrderItemDTO> items = new ArrayList<>();
 
 	public OrderDTO(Long id, Instant moment, OrderStatus status, UserMinDTO client, PaymentDTO payment) {
